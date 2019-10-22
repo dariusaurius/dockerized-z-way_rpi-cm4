@@ -13,8 +13,4 @@ echo "Start mongoose http server"
 /etc/init.d/mongoose start
 
 echo "Start z-way-server"
-/etc/init.d/z-way-server start
-
-sleep 10
-
-tail -f /var/log/z-way-server.log
+./z-way-server
