@@ -10,8 +10,10 @@ RUN apt-get update && apt-get -y install z-way-server webif
 RUN echo razberry > /etc/z-way/box_type
 
 COPY config.xml /opt/z-way-server/config.xml
-RUN chmod ug+rwx /opt/z-way-server/config.xml
+COPY zway-start.sh /opt/zway-start.sh
+
+RUN chmod +x /opt/zway-start.sh && chmod ug+rwx /opt/z-way-server/config.xml
 
 WORKDIR /opt/z-way-server/
 
-CMD ["/opt/z-way-server/z-way-server"]
+CMD ["/opt/zway-start.sh"]
