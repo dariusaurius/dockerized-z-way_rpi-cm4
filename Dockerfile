@@ -1,6 +1,6 @@
 FROM arm32v7/debian:buster-slim
 
-RUN apt-get update && apt-get -y install dirmngr apt-transport-https ca-certificates
+RUN apt-get update && apt-get -y install dirmngr apt-transport-https ca-certificates libssl-dev
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x7E148E3C
 RUN echo "deb https://repo.z-wave.me/z-way/raspbian buster main" > /etc/apt/sources.list.d/z-wave-me.list
