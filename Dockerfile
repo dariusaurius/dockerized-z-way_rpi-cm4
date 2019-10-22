@@ -16,4 +16,4 @@ RUN chmod +x /opt/zway-start.sh && chmod ug+rwx /opt/z-way-server/config.xml
 
 WORKDIR /opt/z-way-server/
 
-CMD ["/opt/zway-start.sh"]
+CMD ["/opt/z-way-server/z-way-server"]
