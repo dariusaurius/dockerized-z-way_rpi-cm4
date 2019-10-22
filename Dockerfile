@@ -14,4 +14,4 @@ RUN echo razberry > /etc/z-way/box_type
 
 WORKDIR /opt/z-way-server/
 
-CMD ["z-way-server"]
+CMD ["/opt/z-way-server/z-way-server"]
