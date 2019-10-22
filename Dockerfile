@@ -7,7 +7,7 @@ RUN echo "deb https://repo.z-wave.me/z-way/raspbian buster main" > /etc/apt/sour
 
 RUN apt-get update && apt-get -y install z-way-server webif
 
-RUN mkdir /etc/z-way && echo razberry > /etc/z-way/box_type
+RUN echo razberry > /etc/z-way/box_type
 
 #COPY config.xml /opt/z-way-server/config.xml
 #RUN chmod ug+rwx /opt/z-way-server/config.xml
