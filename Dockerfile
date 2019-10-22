@@ -1,20 +1,17 @@
-FROM arm32v7/debian:stretch-slim
+FROM arm32v7/debian:buster-slim
 
-ENV LD_LIBRARY_PATH=/opt/z-way-server/libs
-ENV PATH=/opt/z-way-server:$PATH
+RUN apt-get update && apt-get -y dirmngr apt-transport-https
 
-RUN apt-get update && apt-get -y install wget sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev \
-    libarchive-dev unzip python iproute2 libcurl4-openssl-dev zlib1g-dev libc-ares-dev libv8-dev procps
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x7E148E3C
+RUN echo "deb https://repo.z-wave.me/z-way/raspbian buster main" > /etc/apt/sources.list.d/z-wave-me.list
 
-RUN mkdir /etc/z-way && touch /etc/z-way/box_type
+RUN apt-get update && apt-get install -o Dpkg::Options::="--force-confmiss" -o Dpkg::Options::="--force-confold" -y z-way-server webif
 
-COPY zway-install.sh /opt/zway-install.sh
-COPY zway-start.sh /opt/zway-start.sh
+RUN mkdir /etc/z-way && echo razberry > /etc/z-way/box_type
 
-RUN chmod +x /opt/zway-install.sh && chmod +x /opt/zway-start.sh && /opt/zway-install.sh 2.3.8
-COPY config.xml /opt/z-way-server/config.xml
-RUN chmod ug+rwx /opt/z-way-server/config.xml
+#COPY config.xml /opt/z-way-server/config.xml
+#RUN chmod ug+rwx /opt/z-way-server/config.xml
 
 WORKDIR /opt/z-way-server/
 
-CMD ["/opt/zway-start.sh"]
+CMD ["z-way-server"]
