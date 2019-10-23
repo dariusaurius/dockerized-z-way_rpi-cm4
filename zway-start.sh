@@ -12,4 +12,5 @@ echo "Start mongoose http server"
 /etc/init.d/mongoose start
 
 echo "Start z-way-server"
+cd /opt/z-way-server
 ./z-way-server
