@@ -1,9 +1,8 @@
 #!/bin/bash
 
 if [[ ! -e /opt/initialized ]]; then
-        echo "First install, getting Remote ID"
-        /etc/init.d/zbw_autosetup start
-        touch /opt/initialized
+        echo "First start, getting Remote ID"
+        apt-get update &> /opt/initialized && apt-get -y install zbw &> /opt/initialized
 else
         echo "Start zbw_connect"
         /etc/init.d/zbw_connect start
