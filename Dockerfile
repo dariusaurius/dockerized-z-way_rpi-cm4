@@ -13,10 +13,6 @@ COPY zway-start.sh /opt/zway-start.sh
 
 RUN chmod +x /opt/zway-start.sh && chmod ug+rwx /opt/z-way-server/config.xml
 
-WORKDIR /opt/z-way-server
-
-ENV LD_LIBRARY_PATH=/opt/z-way-server/libs:$LD_LIBRARY_PATH
-
 EXPOSE 8083
 
 CMD ["/opt/zway-start.sh"]
