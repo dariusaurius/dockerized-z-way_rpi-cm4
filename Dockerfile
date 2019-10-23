@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y install dirmngr apt-transport-https ca-certific
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x7E148E3C && echo "deb https://repo.z-wave.me/z-way/raspbian stretch main" > /etc/apt/sources.list.d/z-wave-me.list
 
-RUN apt-get update && apt-get install -o Dpkg::Options::="--force-confmiss" -o Dpkg::Options::="--force-confold" -y z-way-full
+RUN apt-get update && apt-get install -o Dpkg::Options::="--force-confmiss" -y z-way-server webif
 
 RUN echo razberry > /etc/z-way/box_type
 
