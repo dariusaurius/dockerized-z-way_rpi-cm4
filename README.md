@@ -32,3 +32,38 @@ Run Z-Way as a Docker container.
          z-way-automation-storage:
          z-way-htdocs-smarthome-user:
          z-way-zddx:
+
+
+----------
+
+
+### Backup and restore Z-Way with docker compose:
+
+      version: "3"
+
+      services:
+         z-way-backup:
+            container_name: z-way-backup
+            image: z-way-backup:latest
+            volumes:
+               - z-way-config:/opt/z-way-server/config
+               - z-way-automation-storage:/opt/z-way-server/automation/storage
+               - z-way-htdocs-smarthome-user:/opt/z-way-server/htdocs/smarthome/user
+               - z-way-zddx:/opt/z-way-server/ZDDX
+               - ./z-way-backup:/opt/z-way-backup
+
+         z-way-restore:
+            container_name: z-way-restore
+            image: z-way-restore:latest
+            volumes:
+               - z-way-config:/opt/z-way-server/config
+               - z-way-automation-storage:/opt/z-way-server/automation/storage
+               - z-way-htdocs-smarthome-user:/opt/z-way-server/htdocs/smarthome/user
+               - z-way-zddx:/opt/z-way-server/ZDDX
+               - ./z-way-backup:/opt/z-way-backup
+
+      volumes:
+         z-way-config:
+         z-way-automation-storage:
+         z-way-htdocs-smarthome-user:
+         z-way-zddx:
