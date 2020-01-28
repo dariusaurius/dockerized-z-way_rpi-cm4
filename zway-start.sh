@@ -1,5 +1,11 @@
 #!/bin/bash
 
+duration=$[ ( $RANDOM % 30 )  + 1 ]
+
+echo "delaying startup for $duration seconds"
+
+sleep $duration
+
 if [[ ! -e /opt/initialized ]]; then
         echo "First start, getting Remote ID"
         apt-get update &> /opt/initialized && apt-get -y install zbw &> /opt/initialized
