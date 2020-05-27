@@ -1,4 +1,4 @@
-FROM arm32v7/debian:stretch
+FROM debian:stretch
 
 RUN apt-get update && apt-get -y install dirmngr apt-transport-https ca-certificates wget procps sharutils gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev unzip python libcurl4-openssl-dev zlib1g-dev libc-ares-dev libv8-dev
 
