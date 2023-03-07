@@ -1,8 +1,8 @@
 FROM debian:bullseye-slim
 
-RUN apt-get update && apt-get -y install dirmngr apt-transport-https ca-certificates wget procps sharutils gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev unzip python libcurl4-openssl-dev zlib1g-dev libc-ares-dev libv8-dev
+RUN dpkg --add-architecture armhf && apt-get update && apt-get -y install dirmngr apt-transport-https ca-certificates wget procps sharutils gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev unzip python libcurl4-openssl-dev zlib1g-dev libc-ares-dev libv8-dev
 
-RUN dpkg --add-architecture armhf && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 5b2f88a91611e683 && echo "deb https://repo.z-wave.me/z-way/raspbian bullseye main" > /etc/apt/sources.list.d/z-wave-me.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 5b2f88a91611e683 && echo "deb https://repo.z-wave.me/z-way/raspbian bullseye main" > /etc/apt/sources.list.d/z-wave-me.list
 
 RUN apt-get update && apt-get install -o Dpkg::Options::="--force-confmiss" -y z-way-full z-way-server zbw webif
 
