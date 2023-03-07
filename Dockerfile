@@ -13,6 +13,6 @@ COPY z-way-start.sh /opt/z-way-start.sh
 
 RUN chmod +x /opt/z-way-start.sh && chmod ug+rwx /opt/z-way-server/config.xml
 
-EXPOSE 8083
+EXPOSE 8083 8084
 
 CMD ["/opt/z-way-start.sh"]
