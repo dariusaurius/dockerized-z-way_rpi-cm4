@@ -12,8 +12,8 @@ Run Z-Way as a Docker container.
       services:
          z-way:
             container_name: z-way
-            build: https://github.com/SENERGY-Platform/dockerized-z-way.git
-            image: z-way
+            build: https://github.com/dariusaurius/dockerized-z-way_rpi-cm4.git
+            image: z-way:latest
             expose:
                - 8083
             ports:
@@ -44,7 +44,7 @@ Run Z-Way as a Docker container.
       services:
          z-way-backup:
             container_name: z-way-backup
-            build: https://github.com/SENERGY-Platform/dockerized-z-way.git#:backup
+            build: https://github.com/dariusaurius/dockerized-z-way_rpi-cm4.git#:backup
             image: z-way-backup:latest
             volumes:
                - z-way-config:/opt/z-way-server/config
@@ -55,7 +55,7 @@ Run Z-Way as a Docker container.
 
          z-way-restore:
             container_name: z-way-restore
-            build: https://github.com/SENERGY-Platform/dockerized-z-way.git#:restore
+            build: https://github.com/dariusaurius/dockerized-z-way_rpi-cm4.git#:restore
             image: z-way-restore:latest
             volumes:
                - z-way-config:/opt/z-way-server/config
