@@ -14,10 +14,9 @@ Run Z-Way as a Docker container.
             container_name: z-way
             build: https://github.com/dariusaurius/dockerized-z-way_rpi-cm4.git
             image: z-way:latest
-            expose:
-               - 8083
             ports:
                - 8083:8083
+               - 8084:8084
             volumes:
                - z-way-config:/opt/z-way-server/config
                - z-way-automation-storage:/opt/z-way-server/automation/storage
