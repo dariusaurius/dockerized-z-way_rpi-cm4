@@ -1,6 +1,6 @@
 #!/bin/bash
 
-duration=$[ ( $RANDOM % 30 )  + 1 ]
+duration=$[ 1 ]
 
 echo "delaying startup for $duration seconds"
 
